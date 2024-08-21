@@ -6,7 +6,6 @@ import {
 } from "@radixdlt/radix-engine-toolkit";
 import * as bip39 from "bip39";
 import { derivePath } from "ed25519-hd-key";
-import { AccountData } from "../models/account-data";
 
 export interface KeyPair {
   privateKey: PrivateKey;

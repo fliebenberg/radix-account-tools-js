@@ -1,0 +1,31 @@
+{
+  "name": "radix-account-tools-js",
+  "version": "1.0.0",
+  "description": "Javascript/Typescript account creation tools for Radix DLT",
+  "main": "lib/index.js",
+  "types": "lib/account-utils.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && node lib/index.js",
+    "prepare": "npm run build",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
+
+  },
+  "keywords": [
+    "Radix",
+    "account"
+  ],
+  "author": "Fred Liebenberg",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@radixdlt/radix-engine-toolkit": "^1.0.5",
+    "bip39": "^3.1.0",
+    "ed25519-hd-key": "^1.3.0"
+  },
+  "files": ["lib/**/*"]
+}
