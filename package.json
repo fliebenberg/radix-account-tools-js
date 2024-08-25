@@ -1,6 +1,6 @@
 {
   "name": "radix-account-tools-js",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Javascript/Typescript account creation tools for Radix DLT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
