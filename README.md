@@ -5,9 +5,16 @@
 This package provides basic functions to create accounts for the Radix network using javascript/typescript.
 Its aim is to serve as an example of how to do the basics but it is not a fool proof, production grade implementation.
 
+The code was created from examples provided by the Radix team and from my own trial and error.
+
 ### ! IMPORTANT NOTE !
 
 It is your responsibility to make sure you manage the security of the accounts you will use in your application. This package should only serve as a guide of how accounts can be created.
+
+## Contributing to the code
+
+The code was created from examples provided by the Radix team and from my own trial and error.
+The idea is that this becomes a publicly maintained repository, so if you find any errors or would like to contribute in another way to the code or documentation, you are welcome to submit a pull request.
 
 ## Using the code in your project
 
