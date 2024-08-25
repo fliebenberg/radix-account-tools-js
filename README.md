@@ -38,6 +38,16 @@ You can update the package to the latest version using npm:
 npm install radix-account-tools-js@latest
 ```
 
+### Run the demo functions
+
+I created 2 demo functions to illustrate how the code could be used in an application.
+The demo functions are in the ./src/demo.ts file.
+If you have installed the package in your project using npm, you can run the demo functions with the following command from your project folder:
+
+```
+npm run demo
+```
+
 ## Functions
 
 ### function: <span style="color:cyan">generate12WordMenomic</span>
