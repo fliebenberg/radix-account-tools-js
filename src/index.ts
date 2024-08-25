@@ -1,2 +1,2 @@
-export * from "./demo";
 export * from "./account-utils";
+export * as demo from "./demo";
