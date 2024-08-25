@@ -52,7 +52,7 @@ export async function generateAccountFromMnemonic(
   mnemonic: string, // the mnemonic phrase as a string with words separated by spaces
   entityIndex: number = 0, // the entity index of the account (several private/public key pairs can be derived from the same mnemonic phrase) - the same mneominc and same index will always result in the same pair
   networkId: number = 1 // the Radix network id (stokenet = 0, mainnet = 1)
-): Promise<AccountKeys> {
+): Promise<AccountData> {
   let keyPair = generateKeyPair(
     mnemonic,
     entityIndex,
@@ -64,8 +64,9 @@ export async function generateAccountFromMnemonic(
     networkId
   );
   return {
-    accountAddress,
-    ...keyPair,
+    privateKey: keyPair.privateKey,
+    publicKey: keyPair.publicKey,
+    address: accountAddress,
   };
 }
 
@@ -73,7 +74,7 @@ export async function generateAccountFromMnemonic(
 export async function generateAccountFromPrivateKeyBytes(
   privateKeyBytes: Uint8Array, // the array of bytes
   networkId: number // the Radix network id (stokenet = 0, mainnet = 1)
-): Promise<AccountKeys> {
+): Promise<AccountData> {
   const privateKey = new PrivateKey.Ed25519(privateKeyBytes);
   const publicKey = new PublicKey.Ed25519(privateKey.publicKeyHex());
   const accountAddress = await deriveAccountAddressFromPublicKey(
@@ -81,9 +82,9 @@ export async function generateAccountFromPrivateKeyBytes(
     networkId
   );
   return {
-    accountAddress,
     privateKey,
     publicKey,
+    address: accountAddress,
   };
 }
 
@@ -120,7 +121,7 @@ export function generateKeyPair(
   mnemonic: string, // the mnemonic phrase as a string with words separated by spaces
   entityIndex: number, // the entity index of the account (several private/public key pairs can be derived from the same mnemonic phrase) - the same mneominc and same index will always result in the same pair
   networkId: number, // the Radix network id (stokenet = 0, mainnet = 1)
-  entityType: number // the code for the type of entity you want to create (account = 525, identity = 618)
+  entityType: number = ENTITY_TYPE.ACCOUNT // the code for the type of entity you want to create (account = 525, identity = 618)
 ): KeyPair {
   const derivationPath = `m/44'/1022'/${networkId}'/${entityType}'/${KEY_TYPE.TRANSACTION_SIGNING}'/${entityIndex}'`;
   const seedHex = mnemonicToSeed(mnemonic);
@@ -173,7 +174,7 @@ function mnemonicToSeed(mnemonic: string): string {
   return bip39.mnemonicToSeedSync(mnemonic).toString("hex");
 }
 
-// derivs private/public key pair using the privded derivation path and hex seed
+// derives private/public key data using the provided derivation path and hex seed
 function deriveKeyData(derivationPath: string, seedHex: string) {
   return derivePath(derivationPath, seedHex);
 }
