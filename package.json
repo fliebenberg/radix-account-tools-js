@@ -3,7 +3,7 @@
   "version": "1.0.5",
   "description": "Javascript/Typescript account creation tools for Radix DLT",
   "main": "lib/index.js",
-  "types": "lib/account-utils.d.ts, lib/demo.d.ts",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
