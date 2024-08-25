@@ -5,16 +5,11 @@ import {
   generateNewVirtualAccount,
 } from "./account-utils";
 
-let networkId = 0; // 0 for stokenet, 1 for mainnet
+let defaultNetworkId = 0; // 0 for stokenet, 1 for mainnet
 
-run_demo();
-
-async function run_demo() {
-  await create_random_accounts();
-  await load_account_from_pkBytes();
-}
-
-export async function create_random_accounts() {
+export async function create_random_accounts(
+  networkId: number = defaultNetworkId
+) {
   console.log("DEMO: Creating accounts from a mnemonic phrase.");
   // mnemonic phrase must be words separated by spaces
   let mnemonic = ""; // manually add mnemonic phrase here
@@ -41,7 +36,9 @@ export async function create_random_accounts() {
   });
 }
 
-export async function load_account_from_pkBytes() {
+export async function load_account_from_pkBytes(
+  networkId: number = defaultNetworkId
+) {
   console.log("DEMO: Create an account from an array of bytes.");
   let pkBytes: Uint8Array = Uint8Array.from([
     59, 221, 206, 186, 244, 250, 32, 61, 48, 35, 211, 187, 215, 144, 255, 221,
