@@ -16,7 +16,6 @@ export interface AccountData {
   privateKey: PrivateKey;
   publicKey: PublicKey;
   address: string;
-  vaults: Map<string, string[]>;
 }
 
 export interface AccountKeys extends KeyPair {
@@ -166,7 +165,6 @@ export async function generateNewVirtualAccount(
     privateKey,
     publicKey: publicKey,
     address,
-    vaults: new Map(),
   };
 }
 

@@ -10,7 +10,8 @@
     "start": "npm run build && node lib/index.js",
     "prepare": "npm run build",
     "version": "git add -A src",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "demo": "npm run build && node lib/demo.js"
   },
   "keywords": [
     "Radix",
