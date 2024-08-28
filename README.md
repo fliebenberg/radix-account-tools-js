@@ -74,33 +74,6 @@ none
 
 string: a string containing 24 words separated by a comma
 
-### function <span style="color: cyan">generateAccountFromMnemonic</span> <span style="color: blue">async</span>
-
-Creates an account from the provided mnomonic seed phrase and index.
-
-#### inputs
-
-string: The mnemonic seed phrase as a string of comma separated words
-number: The index of the private/public key pair to use for account creation
-number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
-
-#### outputs
-
-AccountData: an object with the account keys and address
-
-#### example
-
-```
-// generates an account from the given 24 word mnemonic phrase at index 5
-let new_account = await generateAccountFromMnemonic(
-  "test seed diet dose potato arrive bar oxygen secret ordinary science
-    shaft cherry laptop timber tower online angle chest indicate mother
-    ticket match type",
-  5,
-  0
-);
-```
-
 ### function <span style="color: cyan">generateAccountsFromMnemonic</span> <span style="color: blue">async</span>
 
 Creates several accounts from the provided mnomonic seed phrase and indices.

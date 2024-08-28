@@ -47,29 +47,6 @@ export function generate24WordMnemonic(): string {
   return bip39.generateMnemonic(256);
 }
 
-// generates an account from a mnemonic phrase
-export async function generateAccountFromMnemonic(
-  mnemonic: string, // the mnemonic phrase as a string with words separated by spaces
-  entityIndex: number = 0, // the entity index of the account (several private/public key pairs can be derived from the same mnemonic phrase) - the same mneominc and same index will always result in the same pair
-  networkId: number = 1 // the Radix network id (stokenet = 0, mainnet = 1)
-): Promise<AccountData> {
-  let keyPair = generateKeyPair(
-    mnemonic,
-    entityIndex,
-    networkId,
-    ENTITY_TYPE.ACCOUNT
-  );
-  let accountAddress = await deriveAccountAddressFromPublicKey(
-    keyPair.publicKey,
-    networkId
-  );
-  return {
-    privateKey: keyPair.privateKey,
-    publicKey: keyPair.publicKey,
-    address: accountAddress,
-  };
-}
-
 // generates an account from a private key expressed as an array of bytes
 export async function generateAccountFromPrivateKeyBytes(
   privateKeyBytes: Uint8Array, // the array of bytes
