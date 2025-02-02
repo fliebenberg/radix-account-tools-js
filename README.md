@@ -80,7 +80,7 @@ Creates several accounts from the provided mnomonic seed phrase and indices.
 
 #### inputs
 
-string: The mnemonic seed phrase as a string of comma separated words
+string: The mnemonic seed phrase as a string of space separated words
 number Array: The indices of the private/public key pairs to use for account creation
 number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
 
@@ -131,7 +131,7 @@ Creates a private/public key pair from the provided provided mnemonic seed phras
 
 #### inputs
 
-string: The mnemonic seed phrase as a string of comma separated words
+string: The mnemonic seed phrase as a string of space separated words
 
 number: The index of the private/public key pair to use for account creation
 
@@ -239,7 +239,7 @@ Generates a hex seed from a mnemonic phrase
 
 #### inputs
 
-string: The mnemonic seed phrase as a string of comma separated words
+string: The mnemonic seed phrase as a string of space separated words
 
 #### outputs
 
