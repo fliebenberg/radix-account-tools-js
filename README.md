@@ -81,7 +81,7 @@ Creates several accounts from the provided mnomonic seed phrase and indices.
 #### inputs
 
 string: The mnemonic seed phrase as a string of comma separated words
-number Array: The indices of the private/public key pairs to use for account creation. By setting the array to [0, 1, 2] you can access the first 3 accounts generated with that mnemonic seed phrase. If you want to access the 100th account, you can set the array to [100] without the need to access the previous 99 accounts.
+number Array: The indices of the private/public key pairs to use for account creation. By setting the array to [0, 1, 2] you can access the first 3 accounts generated with that mnemonic seed phrase. If you want to access the 100th account, you can set the array to [99] without the need to access the previous 99 accounts.
 number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
 
 #### outputs
@@ -133,7 +133,7 @@ Creates a private/public key pair from the provided provided mnemonic seed phras
 
 #### inputs
 
-string: The mnemonic seed phrase as a string of comma separated words
+string: The mnemonic seed phrase as a string of space separated words
 
 number: The index of the private/public key pair to use for account creation. Example: to access the first account, set it to 0. To access the 100th account, set to 99.
 
@@ -241,7 +241,7 @@ Generates a hex seed from a mnemonic phrase
 
 #### inputs
 
-string: The mnemonic seed phrase as a string of comma separated words
+string: The mnemonic seed phrase as a string of space separated words
 
 #### outputs
 
