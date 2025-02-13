@@ -82,7 +82,7 @@ Creates several accounts from the provided mnomonic seed phrase and indices.
 
 string: The mnemonic seed phrase as a string of comma separated words
 number Array: The indices of the private/public key pairs to use for account creation. By setting the array to [0, 1, 2] you can access the first 3 accounts generated with that mnemonic seed phrase. If you want to access the 100th account, you can set the array to [99] without the need to access the previous 99 accounts.
-number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
+number: The id number of the radix network for which to create the account (mainnet = 1, stokenet = 2)
 
 #### outputs
 
@@ -110,7 +110,7 @@ Creates an account from the provided private key bytes.
 #### inputs
 
 UInt8 Array: An array of bytes (numbers) that is used to generate a private key
-number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
+number: The id number of the radix network for which to create the account (mainnet = 1, stokenet = 2)
 
 #### outputs
 
@@ -137,7 +137,7 @@ string: The mnemonic seed phrase as a string of space separated words
 
 number: The index of the private/public key pair to use for account creation. Example: to access the first account, set it to 0. To access the 100th account, set to 99.
 
-number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
+number: The id number of the radix network for which to create the account (mainnet = 1, stokenet = 2)
 
 number (optional: default = 525): The number representing the type of entity you want to create (account = 525, identity = 618)
 
@@ -166,7 +166,7 @@ Derives an account address from the provided public key
 
 PublicKey: The pulbic key to derive an account address from
 
-number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
+number: The id number of the radix network for which to create the account (mainnet = 1, stokenet = 2)
 
 #### outputs
 
@@ -220,7 +220,7 @@ Generates a new account associated with the provided private key
 
 PrivateKey: the private key to use for creating the account
 
-number: The id number of the radix network for which to create the account (stokenet = 0, mainnet = 1)
+number: The id number of the radix network for which to create the account (mainnet = 1, stokenet = 2)
 
 #### outputs
 
