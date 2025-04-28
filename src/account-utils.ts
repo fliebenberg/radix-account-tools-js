@@ -50,7 +50,7 @@ export function generate24WordMnemonic(): string {
 // generates an account from a private key expressed as an array of bytes
 export async function generateAccountFromPrivateKeyBytes(
   privateKeyBytes: Uint8Array, // the array of bytes
-  networkId: number // the Radix network id (stokenet = 0, mainnet = 1)
+  networkId: number // the Radix network id (stokenet = 2, mainnet = 1)
 ): Promise<AccountData> {
   const privateKey = new PrivateKey.Ed25519(privateKeyBytes);
   const publicKey = new PublicKey.Ed25519(privateKey.publicKeyHex());
@@ -69,7 +69,7 @@ export async function generateAccountFromPrivateKeyBytes(
 export async function generateAccountsFromMnemonic(
   mnemonic: string, // the mnemonic phrase as a string with words separated by spaces
   indices: number[], // the entity indices to create account for
-  networkId: number // the Radix network id (stokenet = 0, mainnet = 1)
+  networkId: number // the Radix network id (stokenet = 2, mainnet = 1)
 ): Promise<AccountKeysAndIndex[]> {
   let accounts: AccountKeysAndIndex[] = [];
   for (const index of indices) {
@@ -97,7 +97,7 @@ export async function generateAccountsFromMnemonic(
 export function generateKeyPair(
   mnemonic: string, // the mnemonic phrase as a string with words separated by spaces
   entityIndex: number, // the entity index of the account (several private/public key pairs can be derived from the same mnemonic phrase) - the same mneominc and same index will always result in the same pair
-  networkId: number, // the Radix network id (stokenet = 0, mainnet = 1)
+  networkId: number, // the Radix network id (stokenet = 2, mainnet = 1)
   entityType: number = ENTITY_TYPE.ACCOUNT // the code for the type of entity you want to create (account = 525, identity = 618)
 ): KeyPair {
   const derivationPath = `m/44'/1022'/${networkId}'/${entityType}'/${KEY_TYPE.TRANSACTION_SIGNING}'/${entityIndex}'`;
@@ -114,7 +114,7 @@ export function generateKeyPair(
 // derives an account address from a public key
 export async function deriveAccountAddressFromPublicKey(
   publicKey: PublicKey, // the public key to derive the address for
-  networkId: number // the Radix network id (stokenet = 0, mainnet = 1)
+  networkId: number // the Radix network id (stokenet = 2, mainnet = 1)
 ): Promise<string> {
   return RadixEngineToolkit.Derive.virtualAccountAddressFromPublicKey(
     publicKey,
