@@ -147,7 +147,7 @@ export async function generateNewVirtualAccount(
 }
 
 // generates a hex seed from a mnemonic phrase
-function mnemonicToSeed(mnemonic: string): string {
+export function mnemonicToSeed(mnemonic: string): string {
   return bip39.mnemonicToSeedSync(mnemonic).toString("hex");
 }
 
