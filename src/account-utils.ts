@@ -26,7 +26,7 @@ export interface AccountKeysAndIndex extends AccountKeys {
   accountIndex: number;
 }
 
-const NETWORK = {
+export const NETWORK = {
   MAINNET: 1,
   STOKENET: 2,
 } as const;
