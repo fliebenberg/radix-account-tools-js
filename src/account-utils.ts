@@ -26,6 +26,11 @@ export interface AccountKeysAndIndex extends AccountKeys {
   accountIndex: number;
 }
 
+const NETWORK = {
+  MAINNET: 1,
+  STOKENET: 2,
+} as const;
+
 const KEY_TYPE = {
   TRANSACTION_SIGNING: 1460,
   AUTHENTICATION_SIGNING: 1678,
