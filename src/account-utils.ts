@@ -17,7 +17,7 @@ export interface AccountData extends KeyPair {
   address: string;
 }
 
-export interface AccountKeysAndIndex extends AccountData {
+export interface AccountDataWithIndex extends AccountData {
   index: number;
 }
 
@@ -62,8 +62,8 @@ export async function generateAccountsFromMnemonic(
   mnemonic: string, // the mnemonic phrase as a string with words separated by spaces
   indices: number[], // the entity indices to create account for
   networkId: number // the Radix network id (stokenet = 2, mainnet = 1)
-): Promise<AccountKeysAndIndex[]> {
-  let accounts: AccountKeysAndIndex[] = [];
+): Promise<AccountDataWithIndex[]> {
+  let accounts: AccountDataWithIndex[] = [];
   for (const index of indices) {
     let keyPair = generateKeyPair(
       mnemonic,
