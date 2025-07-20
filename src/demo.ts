@@ -25,10 +25,7 @@ export async function create_random_accounts(
   );
   (await multiAccounts).forEach((accountData) => {
     console.log(
-      "Index: " +
-        accountData.accountIndex +
-        "      Address : " +
-        accountData.accountAddress
+      "Index: " + accountData.index + "      Address : " + accountData.address
     );
     console.log(
       "Private Key Bytes: [" + accountData.privateKey.bytes.join() + "]"
