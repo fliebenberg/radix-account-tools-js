@@ -3,6 +3,7 @@ import {
   PrivateKey,
   PublicKey,
   RadixEngineToolkit,
+  NetworkId,
 } from "@radixdlt/radix-engine-toolkit";
 import * as bip39 from "bip39";
 import { derivePath } from "ed25519-hd-key";
@@ -12,24 +13,13 @@ export interface KeyPair {
   publicKey: PublicKey;
 }
 
-export interface AccountData {
-  privateKey: PrivateKey;
-  publicKey: PublicKey;
+export interface AccountData extends KeyPair {
   address: string;
 }
 
-export interface AccountKeys extends KeyPair {
-  accountAddress: string;
+export interface AccountKeysAndIndex extends AccountData {
+  index: number;
 }
-
-export interface AccountKeysAndIndex extends AccountKeys {
-  accountIndex: number;
-}
-
-export const NETWORK = {
-  MAINNET: 1,
-  STOKENET: 2,
-} as const;
 
 const KEY_TYPE = {
   TRANSACTION_SIGNING: 1460,
@@ -59,14 +49,11 @@ export async function generateAccountFromPrivateKeyBytes(
 ): Promise<AccountData> {
   const privateKey = new PrivateKey.Ed25519(privateKeyBytes);
   const publicKey = new PublicKey.Ed25519(privateKey.publicKeyHex());
-  const accountAddress = await deriveAccountAddressFromPublicKey(
-    publicKey,
-    networkId
-  );
+  const address = await deriveAccountAddressFromPublicKey(publicKey, networkId);
   return {
     privateKey,
     publicKey,
-    address: accountAddress,
+    address,
   };
 }
 
@@ -84,13 +71,13 @@ export async function generateAccountsFromMnemonic(
       networkId,
       ENTITY_TYPE.ACCOUNT
     );
-    let accountAddress = await deriveAccountAddressFromPublicKey(
+    let address = await deriveAccountAddressFromPublicKey(
       keyPair.publicKey,
       networkId
     );
     accounts.push({
-      accountIndex: index,
-      accountAddress,
+      index: index,
+      address,
       privateKey: keyPair.privateKey,
       publicKey: keyPair.publicKey,
     });
